@@ -1,42 +1,40 @@
-const form = document.getElementById("recipe-form");
-const successMessage = document.getElementById("success-message");
+const wrapper = document.getElementById("card-wrapper");
 
-form.addEventListener("submit", (submitForm) => {
-  submitForm.preventDefault();
+const getAllRecipes = async () => {
+  const response = await fetch(
+    "https://66f03a03f2a8bce81be55c6c.mockapi.io/recipes"
+  );
+  const data = await response.json();
+  return data;
+};
 
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
-  const instructions = document.getElementById("instructions").value;
-  const ingredients = document.getElementById("ingredients").value;
-  const recipe_img = document.getElementById("recipe_img").value;
+const buildCards = async (recipes) => {
+  recipes.forEach((recipe) => {
+    const title = document.createElement("h4");
+    const description = document.createElement("h4");
+    const instructions = document.createElement("h4");
+    const ingredients = document.createElement("h4");
+    const img = document.createElement("img");
+    const card = document.createElement("a");
+    card.href = `./recipe/index.html?id=${recipe.id}`;
 
-  const recipe = {
-    title: title,
-    description: description,
-    instructions: instructions,
-    ingredients: ingredients,
-    recipe_img: recipe_img,
-  };
+    card.setAttribute("class", "card");
 
-  fetch("https://66f03a03f2a8bce81be55c6c.mockapi.io/recipes", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(recipe),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    title.innerText = recipe.title;
+    description.innerText = recipe.description;
+    instructions.innerText = recipe.instructions;
+    ingredients.innerText = recipe.ingredients;
+    img.setAttribute("src", recipe.recipe_img);
 
-  successMessage.style.display = "block";
+    card.append(title, description, instructions, ingredients, img);
+    wrapper.append(card);
+  });
+};
 
-  setTimeout(() => {
-    window.location.href = "./recipes/index.html";
-  }, 3000);
-  form.reset();
-});
+const startApp = async () => {
+  const recipes = await getAllRecipes();
+  console.log(recipes);
+  buildCards(recipes);
+};
+
+startApp();

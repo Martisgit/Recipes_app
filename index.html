@@ -7,81 +7,9 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <h1>Insert Form</h1>
-    <div class="form-container">
-      <h2>Submit a New Recipe</h2>
-      <form id="recipe-form">
-        <!-- Title Field -->
-        <div class="form-group">
-          <label for="title">Recipe Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Enter the title"
-            required
-          />
-        </div>
-
-        <!-- Description Field -->
-        <div class="form-group">
-          <label for="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            rows="3"
-            placeholder="Enter a short description"
-            required
-          ></textarea>
-        </div>
-
-        <!-- Instructions Field -->
-        <div class="form-group">
-          <label for="instructions">Instructions:</label>
-          <textarea
-            id="instructions"
-            name="instructions"
-            rows="5"
-            placeholder="Enter the instructions"
-            required
-          ></textarea>
-        </div>
-
-        <!-- Ingredients Field -->
-        <div class="form-group">
-          <label for="ingredients">Ingredients:</label>
-          <textarea
-            id="ingredients"
-            name="ingredients"
-            rows="4"
-            placeholder="List the ingredients, separated by commas"
-            required
-          ></textarea>
-        </div>
-
-        <!-- Recipe Image Field -->
-        <div class="form-group">
-          <label for="recipe_img">Recipe Image URL:</label>
-          <input
-            type="url"
-            id="recipe_img"
-            name="recipe_img"
-            placeholder="Enter the image URL"
-            required
-          />
-        </div>
-
-        <!-- Submit Button -->
-        <div class="form-group">
-          <input type="submit" value="Submit Recipe" />
-        </div>
-      </form>
-      <div id="success-message" class="success-message">
-        Form accepted! Redirecting to your recipes page...
-      </div>
-    </div>
+    <h1>Recipes</h1>
+    <a class="insert-link" href="./insertion/index.html">Insert a new recipe</a>
     <div id="card-wrapper"></div>
     <script src="./script.js"></script>
-    <a href="./recipes/index.html">Check recipes</a>
   </body>
 </html>

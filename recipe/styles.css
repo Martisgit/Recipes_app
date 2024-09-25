@@ -1,0 +1,47 @@
+a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: black;
+  border: 1px solid black;
+  width: 520px;
+  margin: 20px auto;
+}
+
+a:hover {
+  background-color: rgb(141, 192, 141);
+  transition: background-color 1s ease;
+}
+
+h1,
+h3 {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cover {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.delete-btn {
+  display: flex;
+  padding: 0.8rem;
+  background-color: brown;
+  color: white;
+  font-weight: 600;
+  margin: auto;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.warning-message {
+  color: brown;
+}
